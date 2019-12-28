@@ -1,0 +1,25 @@
+{
+  "include": [
+    "src"
+  ],
+  "compilerOptions": {
+    "moduleResolution": "Node",
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2017",
+    "outDir": "dist",
+    "rootDir": "src",
+    // "watch": true,
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "noImplicitAny": true,
+    "strict": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "allowJs": true
+  }
+}
