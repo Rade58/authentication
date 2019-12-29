@@ -28,7 +28,7 @@ import { Document } from 'mongoose'
 //  ODNOSNO NE MORA DA GA QUERY-UJE 
 
 
-const me: Handler = (req: Request, res: Response) => {
+export const me: Handler = (req: Request, res: Response) => {
   const user: any = (req as any).user
 
   res.status(200).json({ data: user })
@@ -44,7 +44,7 @@ const me: Handler = (req: Request, res: Response) => {
 // TO NARAVNO MOZE MITI EMAIL, PASSWORD, CAK I NAME, ALI I TEMA I COMPACT MODE, O KOJIMA SAM GOVORIO
 // ODNOSNO KOJI SU DO SCHEMA-E
 
-const updateMe: Handler = async (req: Request, res: Response) => {
+export const updateMe: Handler = async (req: Request, res: Response) => {
 
   const _id: string = (req as any).user._id
 
@@ -61,4 +61,3 @@ const updateMe: Handler = async (req: Request, res: Response) => {
   }
 
 }
-
