@@ -1,44 +1,22 @@
-import { createConnection } from "net"
+import { User } from './user.model'
 
 
 /**
  * @VAZNO
  *
+ * U README-U SAM VEC REKAO DA CE        user      OBJEKAT, ILI USER Document
+ *                                               BITI ZAKACENI REQUEST, STO CE URADITI MIDDLEWARE
+ *                                                 KOJ ICU KASNIJE DEFINISATI
  *
+ *  AKO NE MOZES DA WRAPPUJES SVOJ MIND AROUNDF IT TREBA DA SHVATIS DA MIDDLEWARE
+ * IMA PRISTUP TVOM REQUEST-U
  *
+ * PRE NEGO STO MOUNT-UJES ROUTER, TI CES MOUNT-OVATI I MIDDLEWARE
+ * ISTI REQUEST PROLAZI I KROZ ROUTER I KROZ MIDDLEWARE
  *
- *
- *
- *
- * @OPCIJA
- *
- *
+ * MOZDA JE DOBRO DA PROVEZBAS OVO
  *
  */
 
-/* OVO JE RESENJA A NE O NO DOLE
-
-save ZA CREATION
 
 
-update ZA UPDATE
-
-
-cultSchema.pre('save', function (next) {
-    console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
-    console.log(this.isModified('amount'))
-
-    // this.isModified
-
-    next()
-
-})
-
-cultSchema.pre('findOneAndUpdate', function (next) {
-    console.log('BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB')
-
-    console.log(this.getUpdate())
-
-    next()
-
-}) */
