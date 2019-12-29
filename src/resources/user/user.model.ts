@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt'
 
 // OVO JE OBJEKAT KOJI PREDSTAVLAJ DEFINICIJU SCHEMA-E
 
-const userSchemaOpts: mongoose.SchemaDefinition = {
+const userSchemaDefinition: mongoose.SchemaDefinition = {
   email: {
     type: String,
     required: true,
@@ -43,12 +43,25 @@ const userSchemaOpts: mongoose.SchemaDefinition = {
 // USER SCHEMA, PRVI ARGUMENT JE PREDHODNI OBJEKAT
 
 const userSchema: mongoose.Schema = new mongoose.Schema(
-  userSchemaOpts,
+  userSchemaDefinition,
   { timestamps: true }
 )
 
-// NAKON STO SAM DEFINISAO SCHEMA-U, NAJBOLJE JE DA VIZUALIZUJEM, KOJE SE TO OPERACIJE MOGU OBAVLJATI NAD
-// user DOKUMENTOM
+// NAKON STO SAM DEFINISAO SCHEMA-U, NAJBOLJE JE DA VIZUALIZUJEM, KOJE BI TO HOOK-OVE MOGAO UPOTREBITI NA SCHEMA-I
+
+/**
+ * @HASHING PASSWORD-A
+ * 
+ *  SE MOZE OBAVLJATI KROZ HOOK-OVE,
+ * 
+ */
+
+// MEDDJUTIM OVDE MORAM MALO UCI U 'PURE MONGODB LAND'
+
+//       U HOOK-OVIMA, KOJE CU KORISTITI, JA CU MORATI KORISTITI DVE METODE NAD MONGODB DOKUMENTOM, KOJE SU DEO     MONGODB API   ,A   NE MONGOOSE-A
+
+//            HOOK-OVI (MIDDLEWARE IZMEDJU MONGODB JAVASCRIPT API I MONGOOSE-A)
+
 
 /**
  * @DODAVANJE NOVIH USER-A
@@ -68,3 +81,9 @@ const userSchema: mongoose.Schema = new mongoose.Schema(
 
 
  */
+
+
+
+const model = mongoose.model('user', userSchema)
+
+// model.upda

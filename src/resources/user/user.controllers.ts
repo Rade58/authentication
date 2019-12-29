@@ -1,16 +1,44 @@
+import { createConnection } from "net"
 
 
 /**
  * @VAZNO
  *
- * KADA KORISTIS updating METODE      SAZNAO SAM DA SE NE TRIGGER-UJE           pre         HOOK
  *
- * KONKRETNO SAM TO SAZNAO ZA METODU                findOneAndUpdate
  *
- * ALI AKO KORISTIS SLEDECU OPCIJU, PRI POZIVANJU POMENUTE FUNKCIJE, OMOGUCICE DA SE IPAK TRIGGERUJE HOOK
+ *
+ *
+ *
  *
  * @OPCIJA
  *
- *                      passRawResult: true
+ *
  *
  */
+
+/* OVO JE RESENJA A NE O NO DOLE
+
+save ZA CREATION
+
+
+update ZA UPDATE
+
+
+cultSchema.pre('save', function (next) {
+    console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+    console.log(this.isModified('amount'))
+
+    // this.isModified
+
+    next()
+
+})
+
+cultSchema.pre('findOneAndUpdate', function (next) {
+    console.log('BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB')
+
+    console.log(this.getUpdate())
+
+    next()
+
+}) */
