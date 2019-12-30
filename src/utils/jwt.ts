@@ -16,7 +16,7 @@ interface Payload {
 
 // SADA DEFINISEM FUNKCIJE, KOJE CE HANDLE-OVATI TOKEN-E
 
-export const createToken = ({ _id, email }: { _id: string, email: string }) => {        // NEKA TE NE PLASI OVO DESTRUKTURIRANJE OBJEKTA U TYPESCRIPT-U
+export const createToken = ({ _id, email }: { _id: string, email: string }): string => {        // NEKA TE NE PLASI OVO DESTRUKTURIRANJE OBJEKTA U TYPESCRIPT-U
   // NIJE NI MORALO OVDE DA SE DEFINISE, ALI NEKA GA
   // KAO PODSETNIK TOGA KAKO SE DEFINISE
 
@@ -34,5 +34,26 @@ export const createToken = ({ _id, email }: { _id: string, email: string }) => {
   //                              "10h"       "2 days"
 
   return token
+
+}
+
+
+// SADA PRAVIM FUNKCIJU, KOJA UZIMA TOKEN I UZIMA SECRET, I OD TOGA TREBA DA IZBACI PAYLOAD (USER OBJEKAT)
+// AKO VERIFIKACIJA BUDE U REDU; A U SUPROTNOM, IZBACICE ERROR
+// U PITANJU JE ASINHRONA OPERACIJA
+
+export const verifyToken = async (token: string): Promise<Payload> => {
+
+  return new Promise((res, rej) => {
+
+    jwt.verify(token, SECRET, (err, payload) => {
+
+      if (err) return rej(err)
+
+      res((payload as Payload))
+
+    })
+
+  })
 
 }
