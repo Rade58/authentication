@@ -22,15 +22,12 @@ export const signUp: RequestHandler = async (req: Request, res: Response): Promi
 
     // OVAJ KORAK MI JE UPITAN, MOZDA SAM TREBAO POSLATI token KAO VREDNOST Authorization HEADER-A
     // USTVARI CITAJUCI NEKE CLANKE VIDEO SAM
-
     res.status(201).send({ token })
 
   } catch (error) {
 
     console.log(error)
-
     res.status(500).end()
-
   }
 
 }
@@ -62,7 +59,6 @@ export const signIn: RequestHandler = async (req: Request, res: Response): Promi
     try {
 
       await (user as any).checkPassword(password)
-
       const token = createToken({ _id: user._id, email: (user as any).email })
 
       // AKO IMAS MATCHING PASSWORD, SALJES TOKEN
@@ -76,7 +72,6 @@ export const signIn: RequestHandler = async (req: Request, res: Response): Promi
 
   } catch (error) {
     console.log(error)
-
     res.status(500).end()
   }
 
@@ -153,4 +148,6 @@ export const protect: RequestHandler = async (req: Request, res: Response, next:
 // TI IMAS OBICAJ DA NESTUJES try catch BLOKOVE
 // MOZDA JE TO LOSA PRAKASA
 
-// MISLIM DA JE AUTOR WORKSHOP-A IAMO PAR GRESAKA, KOJE SAM SE GORE TRUDIO DA ISPRAVIM
+// BOLJE JE DEFINISATI VARIJABLE PRE BLOKA, PA IS KORISTITI U BLOKU (U SUSTINI BOLJE JE DA IMAS NEKOLIKO SUSEDNIH BLOKOVA
+// NEGO NESTED BLOKOVE)
+

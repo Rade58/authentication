@@ -56,7 +56,6 @@ export const updateMe: Handler = async (req: Request, res: Response) => {
 
   } catch (error) {
     console.log(error)
-
     res.status(400).end()
   }
 
