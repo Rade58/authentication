@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 // SECRET STVARI
 
-const DATBASE_NAME = process.env.DATABASE_NAME
+const DATABASE_NAME = process.env.DATABASE_NAME
 
 
 // FUNKCIJA ZA CONNECTING NA DATBASE
@@ -10,7 +10,7 @@ const DATBASE_NAME = process.env.DATABASE_NAME
 export const connect = async () => {
 
   return await mongoose.connect(
-    `mongodb://localhost:27017/${DATBASE_NAME}`,
+    `mongodb://localhost:27017/${DATABASE_NAME}`,
     { useUnifiedTopology: true, useNewUrlParser: true }
   )
 
